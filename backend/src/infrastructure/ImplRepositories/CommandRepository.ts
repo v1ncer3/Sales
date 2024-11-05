@@ -13,4 +13,12 @@ export class CommandRepository implements IComandaRepository {
     async findAll(): Promise<Command[]> {
         return await this.comandaRepository.find();
     }
+
+    async findOne(id: number): Promise<Command | null> {
+        return await this.comandaRepository.findOneBy({ id });
+    }
+
+    async delete(id: number): Promise<void> {
+        await this.comandaRepository.delete(id);
+    }
 }
